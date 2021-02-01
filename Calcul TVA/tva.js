@@ -1,32 +1,19 @@
-var titre = document.createElement('p')
-var contenu_titre = document.createTextNode('Calculer une TVA')
-titre.appendChild(contenu_titre)
+var boutons = document.getElementsByTagName('button');
 
-var TVA = ['5.5','7','8.5','10','19.6','20']
-for (index = 0; index<TVA.length; index++){
+for(var index = 0; index < boutons.length; index++) {
 
+	boutons[index].onclick = function() {
+	console.log(this.innerHTML);
+	var tauxTVA = parseFloat(this.innerHTML);
+	console.log(tauxTVA);
+	document.querySelector('#tauxTVA').value = tauxTVA;
 
- document.getElementById('TVA1').onclick = function () {
- 	var tauxTVA = document.createElement('input')
-	var contenu_tauxTVA = document.createTextNode(TVA[index].value)
-	tauxTVA.appendChild(contenu_tauxTVA)}
+	var montantHT = document.querySelector('#montantHT').value;
+	var montantTVA = Math.round(tauxTVA/100) * montantHT;
+	var montantTTC = montantHT + montantTVA;
 
+	document.querySelector('#montantTVA').value = montantTVA;
+	document.querySelector('#montantTTC').value = montantTTC;
+	}
 }
 
-
-var montantHT =document.getElementById('montantHT').value
-var montantTVA = document.getElementById('montantTVA').value
-var montantTTC =document.getElementById('montantTTC').value
-
-
-
-function calcul() {
-
-	montantHT + montantTVA = montantTTC
-}
-
-var recap = document.createElement ('div')
-var contenu_recap = document.createTextNode ('Montant HT: '+montantHT
-	'Montant TVA: '+montantTVA 'avec un taux de TVA égal à '+ TVA[index].value
-	'Montant TTC: '+montantTTC )
-recap.appendChild(contenu_recap)

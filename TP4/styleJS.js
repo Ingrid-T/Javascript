@@ -1,6 +1,6 @@
 var utilisateur = prompt('Saisissez votre nom')
 console.log(utilisateur);
-document.getElementById('titre').innerHTML = utilisateur
+document.getElementById('titre').innerHTML = "Bienvenue "+utilisateur
 
 document.getElementById('formulaire').style.background ='blue';
 document.getElementById('formulaire').style.width = '50%'
@@ -19,6 +19,7 @@ document.getElementById('ko').onclick = function() {
 
 document.getElementById('number1').onmouseover = function () {
 	document.getElementById('mouseover1').style.background = 'yellow'}
+
 
 document.getElementsByTagName('select').onmouseover = function () {
 	document.getElementById('mouseover2').style.background = 'yellow'}
